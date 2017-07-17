@@ -1,5 +1,5 @@
 {
-	"name": "cosenary/instagram",
+	"name": "bufferapp/instagram-api-wrapper",
 	"type": "library",
 	"description": "An easy-to-use PHP Class for accessing Instagram's API.",
 	"keywords": ["instagram", "api"],
