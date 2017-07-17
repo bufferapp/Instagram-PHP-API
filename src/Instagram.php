@@ -191,15 +191,25 @@ class Instagram
      *
      * @param int|string $id Instagram user ID
      * @param int $limit Limit of returned results
+     * @param int|string $max_id, return media earlier than this max_id
+     * @param int|string $min_id, return media later than this min_id
      *
      * @return mixed
      */
-    public function getUserMedia($id = 'self', $limit = 0)
+    public function getUserMedia($id = 'self', $limit = 0, $min_id = null, $max_id = null)
     {
         $params = array();
 
         if ($limit > 0) {
             $params['count'] = $limit;
+        }
+
+        if (!is_null($min_id)) {
+            $params['min_id'] = $min_id;
+        }
+
+        if (!is_null($max_id)) {
+            $params['max_id'] = $max_id;
         }
 
         return $this->_makeCall('users/' . $id . '/media/recent', strlen($this->getAccessToken()), $params);
